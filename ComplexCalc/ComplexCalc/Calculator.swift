@@ -25,5 +25,33 @@ class Calculator {
     func divide(lhs : Int, rhs : Int) -> Int {
         return lhs / rhs
     }
-
+    
+    func mathOp(lhs : Int, rhs : Int, op : (Int, Int) -> Int) -> Int{
+        return op(lhs, rhs);
+    }
+    
+    func add(_ args : [Int]) -> Int {
+        var total : Int = 0
+        for i in args {
+            total += i
+        }
+        return total
+    }
+    
+    func multiply(_ args : [Int]) -> Int {
+        var total : Int = 1
+        for i in args {
+            total *= i
+        }
+        return total
+    }
+    
+    func count(_ args : [Int]) -> Int {
+        return args.count
+    }
+    
+    func avg(_ args : [Int]) -> Int {
+        let total = add(args)
+        return total / args.count
+    }
 }
