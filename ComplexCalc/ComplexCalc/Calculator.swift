@@ -54,4 +54,32 @@ class Calculator {
         let total = add(args)
         return total / args.count
     }
+    
+    func mathOp(args : [Int], beg : Int, op : (Int, Int) -> Int) -> Int {
+        var result : Int = op(beg, args[0])
+        for i in 1...args.count-1 {
+            result = op(result, args[i])
+        }
+        return result
+    }
+    
+    func add(lhs : (Int, Int), rhs : (Int, Int)) -> (Int, Int) {
+        return (lhs.0 + rhs.0, lhs.1 + rhs.1)
+    }
+    
+    func subtract(lhs : (Int, Int), rhs : (Int, Int)) -> (Int, Int) {
+        return (lhs.0 - rhs.0, lhs.1 - rhs.1)
+    }
+    
+    func add(lhs : [String : Int], rhs : [String : Int]) -> [String : Int] {
+        let x : Int = lhs["x"]! + rhs["x"]!
+        let y : Int = lhs["y"]! + rhs["y"]!
+        return ["x" : x, "y" : y]
+    }
+    
+    func subtract(lhs : [String : Int], rhs : [String : Int]) -> [String : Int] {
+        let x : Int = lhs["x"]! - rhs["x"]!
+        let y : Int = lhs["y"]! - rhs["y"]!
+        return ["x" : x, "y" : y]
+    }
 }
